@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Proposal</title>
+    <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #ffebf0; /* Light pink background */
+        }
+
+        .container {
+            background: #f0f0f0; /* Light grey container */
+            padding: 30px;
+            width: 60%;
+            margin: 50px auto;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+
+        h1 {
+            color: #d63384; /* Pinkish red */
+        }
+
+        button {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            background: pink;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 10px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background: #ff8fa3;
+            transform: scale(1.05);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .fade-out {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        #message-container {
+            display: none; /* Initially hidden */
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+
+        .fade-in {
+            display: block !important;
+            opacity: 1 !important;
+            transform: scale(1) !important;
+        }
+
+        #message {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d63384; /* Deep pink */
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="content">
+        <h1>Dearest Lesleigh</h1>
+        <p>A honour that fills my heart with so much cheer</p>
+        <p>To someone so special that I hold dear</p>
+        <p>Allow me to ask boldly—loud and clear</p>
+        <p>And may the answer be like music to the ear</p>
+        <p>Oh please review with care as my heart is sincere</p>
+        <p>Say, will you be my Valentine this year?</p>
+        <br>
+
+        <button onclick="showMessage('Hooray! You are now my Valentine!')">ABSOLUTELY!</button>
+        <button onclick="showMessage('Oh no! Click the other button—it’s a way better option!')">No, try again next year</button>
+    </div>
+
+    <div class="container" id="message-container">
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function showMessage(msg) {
+            let content = document.getElementById("content");
+            let messageContainer = document.getElementById("message-container");
+            let messageElement = document.getElementById("message");
+
+            content.classList.add("fade-out"); // Apply fade-out animation
+
+            setTimeout(() => {
+                content.style.display = "none"; // Hide the poem & buttons after fade-out
+                messageElement.innerText = msg;
+                messageContainer.style.display = "block"; // Ensure the message container appears
+                setTimeout(() => {
+                    messageContainer.classList.add("fade-in"); // Apply fade-in effect
+                }, 10); // Small delay for smooth transition
+            }, 1000); // Wait for fade-out animation to complete before switching
+        }
+    </script>
+
+</body>
+</html>
